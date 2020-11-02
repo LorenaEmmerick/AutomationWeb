@@ -17,6 +17,6 @@ end
 
 Capybara.configure do |config|
   config.default_driver = @driver
-  config.app_host = "http://automationpractice.com/index.php/"
+  config.app_host = "http://automationpractice.com"
   config.default_max_wait_time = 40
 end

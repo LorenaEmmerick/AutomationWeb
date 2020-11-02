@@ -1,0 +1,1 @@
+# ST2: Utilizar o carrinho de compras para adicionar e remover produtos

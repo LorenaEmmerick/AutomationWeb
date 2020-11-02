@@ -8,34 +8,32 @@ Funcionalidade: ST1: Consultar produtos no site
     Deve ser exibido o total de itens e quantidade por página.
 @ST1
 @ST1C1
-  Cenário: Consulta de produtos no site com sucesso em lista
-    Dado que sou um usuário na página do site
-    Quando faço a pesquisa com o item "dress"
-    Então posso visualizar a quantidade total dos itens "7 results have been found." em lista 
-    E a visualizar paginação "Showing 1 - 7 of 7 items"
-
-@ST1C2
-  Cenário: Consulta de produtos no site com sucesso em grid
-    Dado que sou um usuário na página do site
-    Quando faço a pesquisa com o item "dress"
-    Então posso visualizar a quantidade total dos itens "7 results have been found." em grid
-    E a visualizar paginação "Showing 1 - 7 of 7 items"
-
-@ST1C3
-  Cenário: Consulta de produtos no site sem sucesso
-    Dado que sou um usuário na página do site
-    Quando faço a pesquisa com o item "sapato"
-    Então não posso visualizar nenhum item 
-    E vejo o alerta "No results were found for your search "sapato"""
-
-@ST1C4
   Cenário: Consulta de vários produtos no site em lista com sucesso
-    
     Dado os itens para pesquisa são:
-      | itens       | alerta                    |paginacao               |
-      |dress        |7 results have been found. |Showing 1 - 7 of 7 items|
-      |blouse       |1 result has been found.   |Showing 1 - 1 of 1 item |
+      |item                 |quantidadeItem             |paginacao               |
+      |Blouse               |1 result has been found.   |Showing 1 - 1 of 1 item |
+      |Printed Summer Dress |3 results have been found. |Showing 1 - 3 of 3 items|
     E que sou um usuário na página do site
     Quando faço a pesquisa com o item
     Então posso visualizar a quantidade total dos itens em lista 
-    E a visualizar paginação
+    E posso visualizar a paginação
+
+@ST1C2
+  Cenário: Consulta de vários produtos no site em grid com sucesso
+    Dado os itens para pesquisa são:
+      |item                        |quantidadeItem             |paginacao               |
+      |Printed Summer Dress        |7 results have been found. |Showing 1 - 7 of 7 items|
+    E que sou um usuário na página do site
+    Quando faço a pesquisa com o item
+    Então posso visualizar a quantidade total dos itens em grid 
+    E posso visualizar a paginação
+
+@ST1C3
+  Cenário: Consulta de vários produtos no site sem sucesso 
+    Dado os itens para pesquisa são:
+      |item         |quantidadeItem              |paginacao               |
+      |Sapato        |7 results have been found. |Showing 1 - 7 of 7 items|
+    E que sou um usuário na página do site
+    Quando faço a pesquisa com o item
+    Então não posso visualizar nenhum item 
+    E vejo o alerta de resultados não encontrados com o nome do item "No results were found for your search {item}"

@@ -1,0 +1,1 @@
+# ST3: Exibir as categorias de produtos no menu da página inicial

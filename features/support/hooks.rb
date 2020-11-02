@@ -3,6 +3,8 @@ Before do
   #page.current_window.resize_to(1440, 900)
 
   @consultar_page = ConsultarPage.new
+  @adicionar_page = AdicionarPage.new
+  @menu_page = MenuPage.new
 
 end
 
