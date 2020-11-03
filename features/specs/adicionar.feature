@@ -17,12 +17,11 @@ Funcionalidade: ST2: Utilizar o carrinho de compras para adicionar e remover pro
 @ST2C2
   Cenário: Adicionar produtos ao carrinho
     Dado os itens para compra são:
-      |produtos             |preco  |quantidade|tamanho |cor |tipo   |
-      |Printed Dress        |$50.99 |1         | S      |Pink|DRESSES|
+      |produtos             |preco  |quantidade|tamanho |cor  |menuPrincipal|subMenu        |idProduto|
+      |Printed Summer Dress |$30.50 |1         |m       |white|Dresses      |Summer Dresses |6        |
     E que sou um usuário na página dos produtos desejados
-    Quando adiciono o produto ao carrinho
-    Então posso continuar comprando ou finalizar a compra
-    E posso visualizar o produto desejado acessando o carrinho
+    Quando adiciono o produto ao carrinho validando o alerta
+    Então posso visualizar o produto desejado acessando o carrinho
     E posso visualizar o preço unitário do produto, total e a quantidade
     E posso finalizar a compra no carrinho
 
@@ -30,8 +29,8 @@ Funcionalidade: ST2: Utilizar o carrinho de compras para adicionar e remover pro
   Cenário: Excluir produtos do carrinho
     Dado que tenho os produtos adicionados ao carrinho
     E os itens para exclusão são:
-      |produtos             |preco  |quantidade|tamanho |cor |tipo   |
-      |Printed Dress        |$50.99 |1         | S      |Pink|DRESSES|
+      |produtos             |preco  |quantidade|tamanho |cor  |menuPrincipal|idProduto|
+      |Printed Summer Dress |$30.50 |1         |m       |white|Dresses      |6        |
     Quando excluo o produto do carrinho
     Então o produto não aparece mais
     E posso visualizar a mensagem "Your shopping cart is empty"
