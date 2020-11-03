@@ -6,12 +6,13 @@ Dado('os itens para pesquisa são:') do |table|
   end
   
   Dado('que sou um usuário na página do site') do
-    @consultar_page.visitar
+      @consultar_page.visitar
+      sleep 1
   end
   
   Quando('faço a pesquisa com o item') do
     @consultar_lista.each do |consultar|
-        @consultar_page.pesquisar(consultar["item"]) 
+        @consultar_page.pesquisar(consultar["item"])
         sleep 1
     end
   end
@@ -27,9 +28,8 @@ Dado('os itens para pesquisa são:') do |table|
   
   Então('posso visualizar a paginação') do
     @consultar_lista.each do |pesquisa|
-      @consultar_page.verificarPaginacao(pesquisa["paginacao"])
       @consultar_page.Scroll.hover
-      sleep 2
+      @consultar_page.verificarPaginacao(pesquisa["paginacao"])
     end
   end
 
@@ -44,3 +44,18 @@ Dado('os itens para pesquisa são:') do |table|
     end
   end
 
+#ST1C3
+
+  Então('não posso visualizar nenhum item') do
+    @consultar_lista.each do |consultar|
+      @consultar_page.verificarQtdProduto(consultar["quantidadeItem"])
+    end
+  end
+  
+  Então('vejo o alerta de resultados não encontrados com o nome do item') do
+    @consultar_lista.each do |consultar|
+      @consultar_page.Scroll.hover
+      alerta = (consultar["alerta"])
+      expect(@consultar_page.verificarAlerta(alerta)).to have_text alerta
+    end
+  end

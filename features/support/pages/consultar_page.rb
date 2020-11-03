@@ -23,11 +23,6 @@ class ConsultarPage
         find('a[title="Grid"]').click
     end
   
-    def Scroll
-        a = all(".btn btn-default button button-medium bt_compare bt_compare", :visible => false)
-        a.last
-    end
-
     def verificarNomeProdutoLista(nomeProduto)
         all('a[class="product-name"]' , text: nomeProduto)
     end
@@ -37,11 +32,19 @@ class ConsultarPage
     end
 
     def verificarNomeProdutoGrid(nomeProduto)
-        all("a[class='product_img_link', title='#{nomeProduto}']")
+        all('a[class="product_img_link"]', text: nomeProduto)
     end
 
     def verificarPaginacao(pagProduto)
         all('div[class="product-count"]', text: pagProduto)
     end
-    
+
+    def verificarAlerta(alerta)
+        find(:xpath, '//*[@id="center_column"]/p', text: alerta)
+    end
+
+    def Scroll
+        find(:xpath,'//*[@id="best-sellers_block_right"]/div/ul/li[3]', :visible => false)
+    end
+
 end
