@@ -30,15 +30,20 @@ class AdicionarPage
     end
 
     def verificarAlertaComprandoeCompar
-        find('.continue btn btn-default button exclusive-medium', :visible => false)
-        click_link "Proceed to checkout"
+        find('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span', text: 'Continue shopping', :visible => false)
+        find('#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a[title="Proceed to checkout"]', :visible => false).click
     end
 
     def verificarTabela(infoProduto)
         find('table tbody tr', text: infoProduto)
     end
 
+    def clickAdicionar
+        find('#center_column > p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium').click
+    end
 
-
+    def EncontrarBotaoContinuarComprando
+        find('#center_column > p.cart_navigation.clearfix > a.button-exclusive.btn.btn-default', text: 'Continue shopping', :visible => false)
+    end
 
 end

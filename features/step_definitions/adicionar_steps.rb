@@ -37,14 +37,12 @@ Dado('os itens para compra são:') do |table|
       end
   end
   
-  Então('posso visualizar o produto desejado acessando o carrinho') do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Então('posso visualizar o preço unitário do produto, total e a quantidade') do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Então('posso finalizar a compra no carrinho') do
-    pending # Write code here that turns the phrase above into concrete actions
+  Então('posso visualizar o produto desejado acessando o carrinho com as informações') do
+    @adicionar_lista.each do |adicionar|
+        @adicionar_page.verificarTabela(adicionar["produtos"])
+        @adicionar_page.verificarTabela(adicionar["preco"])          
+        @adicionar_page.verificarTabela(adicionar["tamanho"])            
+        @adicionar_page.verificarTabela(adicionar["subTotal"])
+        @adicionar_page.EncontrarBotaoContinuarComprando.hover
+      end
   end
