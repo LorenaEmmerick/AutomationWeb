@@ -46,4 +46,7 @@ class AdicionarPage
         find('#center_column > p.cart_navigation.clearfix > a.button-exclusive.btn.btn-default', text: 'Continue shopping', :visible => false)
     end
 
+    def clickExcluir
+        find('.icon-trash').click
+    end
 end

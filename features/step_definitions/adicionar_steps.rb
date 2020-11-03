@@ -46,3 +46,29 @@ Dado('os itens para compra são:') do |table|
         @adicionar_page.EncontrarBotaoContinuarComprando.hover
       end
   end
+
+#ST2C3
+
+  Dado('os itens para exclusão são:') do |table|
+    @adicionar_lista = table.hashes
+  end
+
+  Dado('que tenho os produtos adicionados ao carrinho') do
+    @adicionar_page.visitar
+    @adicionar_lista.each do |adicionar|
+        @adicionar_page.acessoMenuPrincipal(adicionar["menuPrincipal"])
+        @adicionar_page.acessarSubMenu(adicionar["subMenu"])
+        @adicionar_page.adicionarProduto(adicionar["idProduto"],
+                                            adicionar["tamanho"],
+                                            adicionar["cor"],
+                                            adicionar["quantidade"])
+        @adicionar_page.verificarAlertaComprandoeCompar
+      end
+  end
+  
+  Quando('excluo o produto do carrinho') do
+    @adicionar_lista.each do |adicionar|
+        @adicionar_page.clickExcluir
+      end
+    
+  end

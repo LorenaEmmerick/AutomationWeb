@@ -23,12 +23,12 @@ Funcionalidade: ST2: Utilizar o carrinho de compras para adicionar e remover pro
     Quando adiciono o produto ao carrinho validando o alerta
     Então posso visualizar o produto desejado acessando o carrinho com as informações
 
-@ST2C3
+@ST2C3 
+# Terminar
   Cenário: Excluir produtos do carrinho
-    Dado que tenho os produtos adicionados ao carrinho
-    E os itens para exclusão são:
-      |produtos             |preco  |quantidade|tamanho |cor  |menuPrincipal|idProduto|subTotal|
-      |Printed Summer Dress |$30.50 |1         |m       |white|Dresses      |6        |$30.50  |
+    Dado os itens para exclusão são:
+      |produtos             |preco  |quantidade|tamanho |cor  |menuPrincipal|subMenu        |idProduto|subTotal|
+      |Printed Summer Dress |$30.50 |1         |m       |white|Dresses      |Summer Dresses |6        |$30.50  |
+    E que tenho os produtos adicionados ao carrinho
     Quando excluo o produto do carrinho
-    Então o produto não aparece mais
-    E posso visualizar a mensagem "Your shopping cart is empty"
+    Então posso visualizar a mensagem "Your shopping cart is empty"
